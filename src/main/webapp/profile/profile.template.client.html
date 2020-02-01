@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="profile.style.client.css" />
+</head>
+<body>
+<div class="container">
+    <h1>Profile</h1>
+
+    <div class="alert alert-success col-sm-7 wbdv-message" role="alert">
+        Profile successfully saved
+    </div>
+
+    <div class="form-group row">
+        <label for="responsive-username"
+               class="col-sm-2 col-form-label">
+            Username</label>
+        <div class="col-sm-5">
+            <input type="text"
+                   readonly
+                   class="form-control wbdv-field wbdv-username"
+                   id="responsive-username"
+                   value="alice" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="responsive-password"
+               class="col-sm-2 col-form-label">
+            Password</label>
+        <div class="col-sm-5">
+            <input type="password"
+                   class="form-control wbdv-field wbdv-password"
+                   id="responsive-password"
+                   value="alice" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="responsive-dob"
+               class="col-sm-2 col-form-label">
+            Date of Birth</label>
+        <div class="col-sm-5">
+            <input type="date"
+                   class="form-control wbdv-field wbdv-dob"
+                   id="responsive-dob"/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="responsive-phone"
+               class="col-sm-2 col-form-label">
+            Phone</label>
+        <div class="col-sm-5">
+            <input type="number"
+                   class="form-control wbdv-field wbdv-phone"
+                   id="responsive-phone"
+                   placeholder="(xxx)-xxx-xxxx" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="responsive-role"
+               class="col-sm-2 col-form-label">
+            Role</label>
+        <div class="col-sm-5">
+            <select class="form-control wbdv-field wbdv-role" id="responsive-role">
+                <option>
+                    Faculty
+                </option>
+                <option>
+                    Student
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="responsive-email"
+               class="col-sm-2 col-form-label">
+            Email</label>
+        <div class="col-sm-5">
+            <input type="email"
+                   class="form-control wbdv-field wbdv-email"
+                   id="responsive-email"
+                   value="alice@wonder.com" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-5">
+            <button id="updateBtn" class="btn btn-success btn-block wbdv-button wbdv-update">Update</button>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-5">
+            <button id="logoutBtn" class="btn btn-danger btn-block wbdv-button wbdv-logout">Logout</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
