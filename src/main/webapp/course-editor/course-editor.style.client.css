@@ -1,0 +1,38 @@
+#wbdv-module-list {
+    background-color: cyan;
+}
+.wbdv-module {
+    background-color: lightgray;
+}
+.wbdv-bold {
+    font-weight: bolder;
+}
+.wbdv-module.wbdv-selected {
+    background-color: darkgray;
+}
+
+.wbdv-field.wbdv-new-course {
+    background-color: lightskyblue;
+}
+
+
+.fas.fa-plus-circle {
+    color: red;
+}
+
+.wbdv-button.wbdv-add-file {
+    float: right;
+}
+
+.btn.wbdv-field.wbdv-hamburger.col-sm {
+    float: left;
+}
+
+.d-none.d-md-block.wbdv-label.wbdv-course-manager {
+    display: flex;
+}
+
+.form-control.wbdv-field.wbdv-new-course.col-sm {
+    display: flex;
+}
+

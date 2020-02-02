@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="course-editor.style.client.css" />
+    <script src="https://kit.fontawesome.com/2268430328.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-nav navbar-dark bg-primary">
+        <div class="container-fluid">
+            <button class="btn wbdv-field wbdv-hamburger"><i class="fas fa-bars"></i></button>
+            <h3 class="d-none d-md-block wbdv-label wbdv-course-manager col-sm-4">Course Manager</h3>
+            <input class="form-control wbdv-field wbdv-new-course col-sm-5" placeholder="New Course Title" />
+            <button class="btn wbdv-button wbdv-add-course"><i class="fas fa-plus-circle fa-2x"></i></button>
+        </div>
+    </nav>
+
+    <div class="container-sm">
+       <div class="table-responsive-sm">
+            <table class="table table-sm">
+                <thead class="thead-light">
+                    <tr>
+                        <th class="wbdv-header wbdv-title" scope="col">Title</th>
+                        <th class="wbdv-header wbdv-owner" scope="col">Owned By</th>
+                        <th class="wbdv-header wbdv-last-modified" scope="col">Last Modified by me
+                            <button class="btn btn-sm"><i class="fas fa-sort-down"></i></button>
+                            &nbsp;&nbsp;&nbsp;<button class="btn wbdv-button wbdv-grid-layout wbdv-button wbdv-list-layout"><i class="fas fa-th"></i></button>
+                            &nbsp;&nbsp;&nbsp;<button class="btn wbdv-header wbdv-sort"><i class="fas fa-sort-alpha-down"></i></button></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="wbdv-row wbdv-course">
+                        <td scope="row"><i class="fas fa-file-alt wbdv-row wbdv-icon"></i> &nbsp;<a class="wbdv-bold wbdv-row wbdv-title" href="#">CS5500 Software Engineering Graduate</a></td>
+                        <td class="wbdv-row wbdv-owner">me</td>
+                        <td class="wbdv-row wbdv-modified-date">6:45 PM</td>
+                        <td><button class="btn wbdv-row wbdv-button wbdv-delete"><i class="far fa-trash-alt"></i></button></td>
+                    </tr>
+                    <tr class="wbdv-row wbdv-course">
+                        <td scope="row"><i class="fas fa-file-alt wbdv-row wbdv-icon"></i> &nbsp;<a class="wbdv-bold wbdv-row wbdv-title" href="#">CS4550 Software Engineering Undergraduate</a></td>
+                        <td class="wbdv-row wbdv-owner">me</td>
+                        <td class="wbdv-row wbdv-modified-date">6:45 PM</td>
+                        <td><button class="btn wbdv-row wbdv-button wbdv-delete"><i class="far fa-trash-alt"></i></button></td>
+                    </tr>
+                    <tr class="wbdv-row wbdv-course">
+                        <td scope="row"><i class="fas fa-file-alt wbdv-row wbdv-icon"></i> &nbsp;<a class="wbdv-bold wbdv-row wbdv-title" href="#">CS4500 WebDev Undergraduate</a></td>
+                        <td class="wbdv-row wbdv-owner">me</td>
+                        <td class="wbdv-row wbdv-modified-date">6:45 PM</td>
+                        <td><button class="btn wbdv-row wbdv-button wbdv-delete"><i class="far fa-trash-alt"></i></button></td>
+                    </tr>
+                    <tr class="wbdv-row wbdv-course">
+                        <td scope="row"><i class="fas fa-file-alt wbdv-row wbdv-icon"></i> &nbsp;<a class="wbdv-bold wbdv-row wbdv-title" href="#">CS5610 WebDev Graduate</a></td>
+                        <td class="wbdv-row wbdv-owner">me</td>
+                        <td class="wbdv-row wbdv-modified-date">6:45 PM</td>
+                        <td><button class="btn wbdv-row wbdv-button wbdv-delete"><i class="far fa-trash-alt"></i></button></td>
+                    </tr>
+                    <tr class="wbdv-row wbdv-course">
+                        <td scope="row"><i class="fas fa-file-alt wbdv-row wbdv-icon"></i> &nbsp;<a class="wbdv-bold wbdv-row wbdv-title" href="#">CS5200 Intro to Databases</a></td>
+                        <td class="wbdv-row wbdv-owner">me</td>
+                        <td class="wbdv-row wbdv-modified-date">6:44 PM</td>
+                        <td><button class="btn wbdv-row wbdv-button wbdv-delete"><i class="far fa-trash-alt"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+           <div class=""><button class="btn wbdv-button wbdv-add-file"><i class="fas fa-plus-circle fa-3x col-sm-1"></i></button></div>
+        </div>
+    </div>
+</body>
+</html>
