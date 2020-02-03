@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="course-editor.style.client.css" />
     <script src="https://kit.fontawesome.com/2268430328.js" crossorigin="anonymous"></script>
 </head>
-<body style="padding-top: 55px">
+<body style="padding-top: 55px; overflow-x: hidden">
     <div class="container-fluid wbdv-navbar">
         <nav class="navbar navbar-expand-md fixed-top navbar-dark">
                 <button class="btn wbdv-course-editor wbdv-close wbdv-bold">X</button>
@@ -86,7 +86,7 @@
             </ul>
         </div>
         <div class="col-9">
-            <div class="container-fluid svms-main-content">
+            <div class="container svms-main-content">
                 <ul class="nav nav-pills navbar-expand-md wbdv-topic-pill-list">
                     <li class="nav-item wbdv-topic-pill">
                         <a class="nav-link shadow" href="#">Topic 1</a>
@@ -115,7 +115,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row m-4">
+                <div class="row m-3">
                     <div class="card col">
                         <div class="row">
                             <div class="col-sm-3"><h4>Heading Widget</h4></div>
@@ -139,7 +139,28 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="card-body">
+                            <div class="row p-1">
+                                <!--<div class="col">-->
+                                    <input class="form-control" placeholder="Heading text" />
+                                <!--</div>-->
+                            </div>
+                            <div class="row p-1">
+                                <!--<div class="col">-->
+                                    <select class="form-control">
+                                        <option>Heading 1</option>
+                                        <option>Heading 2</option>
+                                        <option>Heading 3</option>
+                                        <option>Heading 4</option>
+                                    </select>
+                                <!--</div>-->
+                            </div>
+                            <div class="row p-1">
+                                <input class="form-control" placeholder="Widget name" />
+                            </div>
+                        </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
