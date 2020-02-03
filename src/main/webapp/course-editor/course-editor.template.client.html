@@ -10,8 +10,8 @@
 <body style="padding-top: 55px; overflow-x: hidden">
     <div class="container-fluid wbdv-navbar">
         <nav class="navbar navbar-expand-md fixed-top navbar-dark">
-                <button class="btn wbdv-course-editor wbdv-close wbdv-bold">X</button>
-                &nbsp;<a class="navbar-brand wbdv-bold" href="#">CS5610 - WebDev</a>
+                <button onclick="location.href='course-list.template.client.html'" class="btn wbdv-course-editor wbdv-close wbdv-bold">X</button>
+                &nbsp;<a class="navbar-brand wbdv-bold wbdv-course-title" href="#">CS5610 - WebDev</a>
                 <div class="navbar-collapse flex-row-reverse">
                     <ul class="nav nav-pills">
                         <li class="nav-item wbdv-page-tab">
@@ -33,7 +33,7 @@
                             <a href="#" class="wbdv-bold nav-link">Settings</a>
                         </li>
                         <li class="nav-item wbdv-page-tab">
-                            <a href="#" class="wbdv-bold nav-link">+</a>
+                            <a href="#" class="wbdv-bold nav-link wbdv-new-page-btn">+</a>
                         </li>
                     </ul>
             </div>
@@ -41,46 +41,45 @@
     </div>
     <div class="row">
         <div class="col-3 bg-dark wbdv-side-bar">
-            <br />
-            <ul class="nav flex-column nav-pills">
-                <li class="nav-item bg-dark">
-                    <a href="#" class="nav-link list-group-item my-1 font-weight-bolder">Module 1 - jQuery
-                        <button type="button" class="btn btn-sm float-right wbdv-bold">X</button>
+            <ul class="nav flex-column nav-pills pt-3 wbdv-module-list">
+                <li class="nav-item bg-dark wbdv-module-item">
+                    <a href="#" class="nav-link list-group-item my-1 font-weight-bolder wbdv-module-item-title">Module 1 - jQuery
+                        <button type="button" class="btn btn-sm float-right wbdv-bold wbdv-module-item-delete-btn">X</button>
                     </a>
                 </li>
-                <li class="nav-item bg-dark">
-                    <a href="#" class="nav-link list-group-item active my-1 font-weight-bolder">Module 2 - React
-                        <button type="button" class="btn btn-sm float-right wbdv-bold">X</button>
+                <li class="nav-item bg-dark wbdv-module-item">
+                    <a href="#" class="nav-link list-group-item active my-1 font-weight-bolder wbdv-module-item-title">Module 2 - React
+                        <button type="button" class="btn btn-sm float-right wbdv-bold wbdv-module-item-delete-btn">X</button>
                     </a>
                 </li>
-                <li class="nav-item bg-dark">
-                    <a href="#" class="nav-link list-group-item my-1 font-weight-bolder">Module 3 - Redux
-                        <button type="button" class="btn btn-sm float-right wbdv-bold">X</button>
+                <li class="nav-item bg-dark wbdv-module-item">
+                    <a href="#" class="nav-link list-group-item my-1 font-weight-bolder wbdv-module-item-title">Module 3 - Redux
+                        <button type="button" class="btn btn-sm float-right wbdv-bold wbdv-module-item-delete-btn">X</button>
                     </a>
                 </li>
-                <li class="nav-item bg-dark">
-                    <a href="#" class="nav-link list-group-item my-1 font-weight-bolder">Module 4 - Native
-                        <button type="button" class="btn btn-sm float-right wbdv-bold">X</button>
+                <li class="nav-item bg-dark wbdv-module-item">
+                    <a href="#" class="nav-link list-group-item my-1 font-weight-bolder wbdv-module-item-title">Module 4 - Native
+                        <button type="button" class="btn btn-sm float-right wbdv-bold wbdv-module-item-delete-btn">X</button>
                     </a>
                 </li>
-                <li class="nav-item bg-dark">
-                    <a href="#" class="nav-link list-group-item my-1 font-weight-bolder">Module 5 - Angular
-                        <button type="button" class="btn btn-sm float-right wbdv-bold">X</button>
+                <li class="nav-item bg-dark wbdv-module-item">
+                    <a href="#" class="nav-link list-group-item my-1 font-weight-bolder wbdv-module-item-title">Module 5 - Angular
+                        <button type="button" class="btn btn-sm float-right wbdv-bold wbdv-module-item-delete-btn">X</button>
                     </a>
                 </li>
-                <li class="nav-item bg-dark">
-                    <a href="#" class="nav-link list-group-item my-1 font-weight-bolder">Module 6 - Node
-                        <button type="button" class="btn btn-sm float-right wbdv-bold">X</button>
+                <li class="nav-item bg-dark wbdv-module-item">
+                    <a href="#" class="nav-link list-group-item my-1 font-weight-bolder wbdv-module-item-title">Module 6 - Node
+                        <button type="button" class="btn btn-sm float-right wbdv-bold wbdv-module-item-delete-btn">X</button>
                     </a>
                 </li>
-                <li class="nav-item bg-dark">
-                    <a href="#" class="nav-link list-group-item my-1 font-weight-bolder">Module 7 - Mongo
-                        <button type="button" class="btn btn-sm float-right wbdv-bold">X</button>
+                <li class="nav-item bg-dark wbdv-module-item">
+                    <a href="#" class="nav-link list-group-item my-1 font-weight-bolder wbdv-module-item-title">Module 7 - Mongo
+                        <button type="button" class="btn btn-sm float-right wbdv-bold wbdv-module-item-delete-btn">X</button>
                     </a>
                 </li>
                 <li class="bg-dark">
                     <a href="#" class="nav-link font-weight-bolder">
-                        <button class="btn float-right btn-add-module wbdv-bold">+</button>
+                        <button class="btn float-right btn-add-module wbdv-bold wbdv-module-item-add-btn">+</button>
                     </a>
                 </li>
             </ul>
@@ -100,7 +99,7 @@
                     <li class="nav-item wbdv-topic-pill">
                         <a class="nav-link shadow" href="#">Topic 4</a>
                     </li>
-                    <li class="nav-item wbdv-topic-pill">
+                    <li class="nav-item wbdv-topic-add-btn">
                         <a class="nav-link shadow" href="#">+</a>
                     </li>
                 </ul>
@@ -124,12 +123,14 @@
                                     <button class="btn badge-danger btn-sm">X</button>
                                 </div>
                                 <div class="d-inline-flex float-right pr-2 pt-2 my-auto">
-                                    <select class="dropdown">
-                                        <option>Heading</option>
-                                        <option>List</option>
-                                        <option>Image</option>
-                                        <option>Paragraph</option>
-                                    </select>
+                                    <label>
+                                        <select class="dropdown">
+                                            <option>Heading</option>
+                                            <option>List</option>
+                                            <option>Image</option>
+                                            <option>Paragraph</option>
+                                        </select>
+                                    </label>
                                 </div>
                                 <div class="d-inline-flex float-right pr-2 pt-1">
                                     <button class="btn badge-warning btn-sm"><i class="fas fa-arrow-down"></i></button>
@@ -141,19 +142,15 @@
                         </div>
                         <div class="card-body">
                             <div class="row p-1">
-                                <!--<div class="col">-->
-                                    <input class="form-control" placeholder="Heading text" />
-                                <!--</div>-->
+                                <input class="form-control" placeholder="Heading text" />
                             </div>
                             <div class="row p-1">
-                                <!--<div class="col">-->
-                                    <select class="form-control">
-                                        <option>Heading 1</option>
-                                        <option>Heading 2</option>
-                                        <option>Heading 3</option>
-                                        <option>Heading 4</option>
-                                    </select>
-                                <!--</div>-->
+                                <select class="form-control">
+                                    <option>Heading 1</option>
+                                    <option>Heading 2</option>
+                                    <option>Heading 3</option>
+                                    <option>Heading 4</option>
+                                </select>
                             </div>
                             <div class="row p-1">
                                 <input class="form-control" placeholder="Widget name" />
