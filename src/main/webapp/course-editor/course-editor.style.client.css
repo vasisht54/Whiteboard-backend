@@ -15,7 +15,6 @@
     background-color: lightskyblue;
 }
 
-
 .fas.fa-plus-circle {
     color: red;
 }
@@ -43,3 +42,51 @@
 .wbdv-bold.nav-link {
     color: white;
 }
+
+.wbdv-bold.nav-link:hover {
+    color: powderblue;
+}
+
+.col-sm-3.bg-dark.wbdv-side-bar {
+    padding-top: 30px;
+}
+
+.wbdv-side-bar .nav-pills .nav-item .nav-link {
+    background-color: #686868;
+    color: white;
+}
+
+.wbdv-side-bar .nav-pills .nav-item .nav-link:hover {
+    color: lightblue;
+}
+
+.wbdv-side-bar .nav-pills .nav-item .nav-link .btn.btn-sm {
+    color: white;
+}
+
+.wbdv-side-bar .nav-pills .nav-item .nav-link .btn.btn-sm:hover {
+    color: red;
+}
+
+.btn-add-module {
+    font-size: xx-large;
+    color: white;
+}
+
+.btn-add-module:hover {
+    color: lawngreen;
+}
+
+.btn.wbdv-course-editor.wbdv-close.wbdv-bold:hover {
+    color: red;
+}
+
+.navbar-brand {
+    font-size: x-large;
+}
+
+.navbar.navbar-expand-md.fixed-top.navbar-dark {
+    background-color: #202020;
+}
+
+
