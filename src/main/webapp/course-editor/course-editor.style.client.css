@@ -36,3 +36,10 @@
     display: flex;
 }
 
+.btn.wbdv-course-editor.wbdv-close {
+    color: white;
+}
+
+.wbdv-bold.nav-link {
+    color: white;
+}
