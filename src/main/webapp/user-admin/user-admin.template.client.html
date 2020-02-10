@@ -6,11 +6,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="user-admin.style.client.css" />
     <script src="https://kit.fontawesome.com/2268430328.js" crossorigin="anonymous"></script>
-    <script
-            src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="../services/user.service.client.js"></script>
-    <script src="user-admin.controller.client.js"></script>
-
 </head>
 <body>
     <div class="container-fluid">
@@ -29,7 +24,7 @@
                 <th>&nbsp;</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id = "svms-user-admin-table-body">
 
                 <tr class="wbdv-form">
                     <td><input id="usernameFld" class="form-control"
@@ -53,21 +48,7 @@
                     </td>
                 </tr>
 
-
-                <tr class="wbdv-template wbdv-user wbdv-hidden">
-                    <td class="wbdv-username">tlee</td>
-                    <td>&nbsp;</td>
-                    <td class="wbdv-first-name">Tim</td>
-                    <td class="wbdv-last-name">Birns Lee</td>
-                    <td class="wbdv-role">FACULTY</td>
-                    <td class="wbdv-actions">
-                        <span class="float-right">
-                           <button class="btn"><i id="wbdv-remove-1" class="fa fa-times wbdv-remove"></i></button>
-                            <button class="btn"><i id="wbdv-edit-1" class="fa fa-pencil wbdv-edit"></i></button>
-                        </span>
-                    </td>
-                </tr>
-                <tr class="wbdv-template wbdv-user wbdv-hidden">
+                <!--<tr class="wbdv-template wbdv-user wbdv-hidden">
                     <td class="wbdv-username">ada</td>
                     <td>&nbsp;</td>
                     <td class="wbdv-first-name">Ada</td>
@@ -79,50 +60,14 @@
                             <button class="btn"><i id="wbdv-edit" class="fa fa-pencil wbdv-edit"></i></button>
                         </span>
                     </td>
-                </tr>
-
-                <tr class="wbdv-template wbdv-user wbdv-hidden">
-                    <td class="wbdv-username">cgarcia</td>
-                    <td>&nbsp;</td>
-                    <td class="wbdv-first-name">Charlie</td>
-                    <td class="wbdv-last-name">Garcia</td>
-                    <td class="wbdv-role">STUDENT</td>
-                    <td class="wbdv-actions">
-                        <span class="float-right">
-                           <button class="btn"><i id="wbdv-remove-2" class="fa fa-times wbdv-remove"></i></button>
-                            <button class="btn"><i id="wbdv-edit-2" class="fa fa-pencil wbdv-edit"></i></button>
-                        </span>
-                    </td>
-                </tr>
-                <tr class="wbdv-template wbdv-user wbdv-hidden">
-                    <td class="wbdv-username">dcraig</td>
-                    <td>&nbsp;</td>
-                    <td class="wbdv-first-name">Dan</td>
-                    <td class="wbdv-last-name">Craig</td>
-                    <td class="wbdv-role">STUDENT</td>
-                    <td class="wbdv-actions">
-                        <span class="float-right">
-                           <button class="btn"><i id="wbdv-remove-3" class="fa fa-times wbdv-remove"></i></button>
-                            <button class="btn"><i id="wbdv-edit-3" class="fa fa-pencil wbdv-edit"></i></button>
-                        </span>
-                    </td>
-                </tr>
-                <tr class="wbdv-template wbdv-user wbdv-hidden">
-                    <td class="wbdv-username">sbolivar</td>
-                    <td>&nbsp;</td>
-                    <td class="wbdv-first-name">Simon</td>
-                    <td class="wbdv-last-name">Bolivar</td>
-                    <td class="wbdv-role">FACULTY</td>
-                    <td class="wbdv-actions">
-                        <span class="float-right">
-                           <button class="btn"><i id="wbdv-remove-4" class="fa fa-times wbdv-remove"></i></button>
-                            <button class="btn"><i id="wbdv-edit-4" class="fa fa-pencil wbdv-edit"></i></button>
-                        </span>
-                    </td>
-                </tr>
+                </tr>-->
 
             </tbody>
         </table>
     </div>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../services/user.service.client.js"></script>
+    <script src="user-admin.controller.client.js"></script>
 </body>
 </html>
