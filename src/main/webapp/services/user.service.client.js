@@ -15,6 +15,10 @@ function AdminUserServiceClient() {
 
     function findUserById(userId) {  }
     function updateUser(userId, user) {  }
-    function deleteUser(userId){}
+    function deleteUser(userId){
+        return fetch(`${self.url}/${userId}`, {
+            method: "DELETE"
+        });
+    }
 
 }
