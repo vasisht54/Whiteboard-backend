@@ -1,6 +1,6 @@
 (function () {
     var $usernameFld, $passwordFld;
-    var $removeBtn, $editBtn, $createBtn;
+    var $removeBtn, $okBtn, $editBtn, $createBtn;
     var $firstNameFld, $lastNameFld, $roleFld;
     var $userRowTemplate, $tbody;
     var userService = new AdminUserServiceClient();
@@ -33,12 +33,35 @@
     }
 
     function createUser() {
+        $usernameFld = $("#usernameFld");
+        $passwordFld = $("#passwordFld");
+        $firstNameFld = $("#firstNameFld");
+        $lastNameFld = $("#lastNameFld");
+        $roleFld = $("#roleFld");
 
+        const newUser = {
+            username: $usernameFld.val(),
+            password: $passwordFld.val(),
+            firstName: $firstNameFld.val(),
+            lastName: $lastNameFld.val(),
+            role: $roleFld.val()
+        };
+        $usernameFld.val("");
+        $passwordFld.val("");
+        $firstNameFld.val("");
+        $lastNameFld.val("")
+
+        userService.createUser(newUser)
+            .then(brandNewUser => {
+                findAllUsers();
+            })
     }
 
 
     function selectUser() {  }
-    function updateUser() {  }
+    function updateUser() {
+
+    }
     function renderUser(user) {  }
 
 
@@ -63,16 +86,21 @@
                               </td>
                          </tr>`;
             $tbody.append($userRowTemplate);
-            document.getElementById(`svms-delete-user-${u}`)
-                .addEventListener('click', () => deleteUser(u));
+            $removeBtn = document.getElementById(`svms-delete-user-${u}`);
+            $removeBtn.addEventListener('click', () => deleteUser(u));
+            $editBtn = document.getElementById(`svms-edit-user-${u}`);
+            $editBtn = document.getElementById('click', () => selectUser());
         }
     }
 
     function main() {
         findAllUsers();
 
-        let $createUserBtn = $(".svms-create-user .wbdv-create");
-        $createUserBtn.click(() => createUser());
+        $createBtn = $(".svms-create-user .wbdv-create");
+        $createBtn.click(() => createUser());
+
+        $okBtn = $(".svms-update-user .wbdv-update");
+        $okBtn.click(() => updateUser());
 
 
     }
