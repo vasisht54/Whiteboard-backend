@@ -16,17 +16,39 @@
 
         <table class="table table-responsive">
             <thead class="thead-dark">
-            <tr>
-                <th>Username</th>
-                <th>Password</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Role</th>
-                <th>&nbsp;</th>
-            </tr>
+                <tr>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Role</th>
+                    <th>&nbsp;</th>
+                </tr>
+
+                <tr class="wbdv-form user-form">
+                    <td><input id="usernameFld" class="form-control"
+                               placeholder="Username" /></td>
+                    <td><input id="passwordFld" class="form-control"
+                               placeholder="Password" /></td>
+                    <td><input id="firstNameFld" class="form-control"
+                               placeholder="First Name" /></td>
+                    <td><input id="lastNameFld" class="form-control"
+                               placeholder="Last Name" /></td>
+                    <td><select id="roleFld" class="form-control">
+                        <option value="FACULTY">Faculty</option>
+                        <option value="STUDENT">Student</option>
+                        <option value="ADMIN">Admin</option>
+                    </select></td>
+                    <td><span class="float-right" style="white-space: nowrap">
+                                <button class="btn"><i class="fa-2x fa fa-search wbdv-search"></i></button>
+                                <button class="btn svms-create-user"><i class="fa-2x fa fa-plus wbdv-create"></i></button>
+                                <button class="btn svms-update-user"><i class="fa-2x fa fa-check wbdv-update"></i></button>
+                            </span>
+                    </td>
+                </tr>
             </thead>
             <tbody id = "svms-user-admin-table-body">
-
+<!--
                 <tr class="wbdv-form">
                     <td><input id="usernameFld" class="form-control"
                                placeholder="Username" /></td>
@@ -47,7 +69,7 @@
                             <button class="btn"><i class="fa-2x fa fa-check wbdv-update"></i></button>
                         </span>
                     </td>
-                </tr>
+                </tr>-->
 
                 <!--<tr class="wbdv-template wbdv-user wbdv-hidden">
                     <td class="wbdv-username">ada</td>
