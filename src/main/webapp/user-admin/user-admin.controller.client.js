@@ -62,21 +62,8 @@
             })
     }
 
-    function selectUser(_id) {
-        findUserById(_id)
-            .then((selectedUser) => {
-                selectedUserId = selectedUser._id;
-                $usernameFld = $("#usernameFld");
-                $passwordFld = $("#passwordFld");
-                $firstNameFld = $("#firstNameFld");
-                $lastNameFld = $("#lastNameFld");
-                $roleFld = $("#roleFld");
-                $usernameFld.val(selectedUser.username);
-                $passwordFld.val(selectedUser.password);
-                $firstNameFld.val(selectedUser.firstName);
-                $lastNameFld.val(selectedUser.lastName);
-                $roleFld.val(selectedUser.role);
-                  })
+    function selectUser() {
+
     }
     function updateUser() {
         $usernameFld = $("#usernameFld");
@@ -102,7 +89,22 @@
                 findAllUsers();
             })
     }
-    function renderUser(user) {  }
+    function renderUser(_id) {
+        findUserById(_id)
+            .then((selectedUser) => {
+                selectedUserId = selectedUser._id;
+                $usernameFld = $("#usernameFld");
+                $passwordFld = $("#passwordFld");
+                $firstNameFld = $("#firstNameFld");
+                $lastNameFld = $("#lastNameFld");
+                $roleFld = $("#roleFld");
+                $usernameFld.val(selectedUser.username);
+                $passwordFld.val(selectedUser.password);
+                $firstNameFld.val(selectedUser.firstName);
+                $lastNameFld.val(selectedUser.lastName);
+                $roleFld.val(selectedUser.role);
+            })
+    }
 
 
     function renderUsers(users) {
@@ -117,7 +119,7 @@
                                   <td class="wbdv-actions">
                                     <span class="float-right">
                                         <button id="svms-delete-user-${u}" class="btn">
-                                            <i id="wbdv-delete" class="fa fa-times wbdv-remove"></i>
+                                            <i id="wbdv-remove" class="fa fa-times wbdv-remove"></i>
                                        </button>
                                         <button id="svms-edit-user-${u}" class="btn">
                                             <i id="wbdv-edit" class="fa fa-pencil wbdv-edit"></i>
@@ -129,7 +131,7 @@
             $removeBtn = document.getElementById(`svms-delete-user-${u}`);
             $removeBtn.addEventListener('click', () => deleteUser(u));
             $editBtn = document.getElementById(`svms-edit-user-${u}`);
-            $editBtn.addEventListener('click', () => selectUser(users[u]._id));
+            $editBtn.addEventListener('click', () => renderUser(users[u]._id));
         }
     }
 
