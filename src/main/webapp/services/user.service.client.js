@@ -22,8 +22,21 @@ function AdminUserServiceClient() {
             .then((response) => response.json());
     }
 
-    function findUserById(userId) {  }
-    function updateUser(userId, user) {  }
+    function findUserById(userId) {
+        return fetch(`${self.url}/${userId}`)
+            .then(response => response.json());
+    }
+
+    function updateUser(userId, user) {
+        return fetch(`${self.url}/${userId}`, {
+            method: "PUT",
+            body: JSON.stringify(user),
+            headers: {
+                "content-type": "application/json"
+            }
+        })
+            .then(response => response.json())
+    }
     function deleteUser(userId){
         return fetch(`${self.url}/${userId}`, {
             method: "DELETE"
