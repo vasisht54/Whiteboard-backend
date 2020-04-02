@@ -1,26 +1,34 @@
 package com.example.wbdvsp20vasishtserverjava.controllers;
 
 import com.example.wbdvsp20vasishtserverjava.models.Widget;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.wbdvsp20vasishtserverjava.services.WidgetService;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class WidgetController {
-
-    private List<Widget> widgetList = new ArrayList<>();
+    private WidgetService widgetService = new WidgetService();
 
     @GetMapping("/api/widgets")
     public List<Widget> findAllWidgets() {
-        Widget w1 = new Widget("123", "Widget A");
-        Widget w2 = new Widget("234", "Widget B");
-        Widget w3 = new Widget("345", "Widget C");
-        widgetList.add(w1);
-        widgetList.add(w2);
-        widgetList.add(w3);
-        return widgetList;
+        return widgetService.findAllWidgets();
+    }
+
+    @PostMapping("/api/widgets")
+    public void createWidget(@RequestBody Widget widget) {
+        widgetService.createWidget(widget);
+    }
+
+    @DeleteMapping("/api/widgets/{widgetId}")
+    public void deleteWidget(@PathVariable("widgetId") String wid) {
+        widgetService.deleteWidget(wid);
+    }
+
+    @GetMapping("/api/widgets/{widgetId}")
+    public Widget findWidgetById(@PathVariable("widgetId")  String wid) {
+        return widgetService.findWidgetById(wid);
     }
 
     @GetMapping("/hello")
