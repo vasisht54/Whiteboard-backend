@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class WidgetController {
     private WidgetService widgetService = new WidgetService();
 
@@ -16,14 +17,25 @@ public class WidgetController {
         return widgetService.findAllWidgets();
     }
 
+    @GetMapping("/api/topics/{tId}/widgets")
+    public List<Widget> findWidgetsForTopic(@PathVariable("tId") String topicId) {
+        return widgetService.findWidgetsForTopic(topicId);
+    }
+
+    @PutMapping("/api/widgets/{wId}")
+    public int updateWidget(@PathVariable("wId") String widgetId, @RequestBody Widget widget) {
+        return widgetService.updateWidget(widgetId, widget);
+    }
+
     @PostMapping("/api/widgets")
     public void createWidget(@RequestBody Widget widget) {
         widgetService.createWidget(widget);
     }
 
-    @DeleteMapping("/api/widgets/{widgetId}")
-    public void deleteWidget(@PathVariable("widgetId") String wid) {
-        widgetService.deleteWidget(wid);
+    @DeleteMapping("/api/widgets/{wId}")
+    public int deleteWidget(@PathVariable("wId") String widgetId) {
+        boolean res = widgetService.deleteWidget(widgetId);
+        return res ? 1 : 0;
     }
 
     @GetMapping("/api/widgets/{widgetId}")
