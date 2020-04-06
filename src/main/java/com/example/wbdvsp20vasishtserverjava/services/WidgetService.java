@@ -9,17 +9,18 @@ public class WidgetService {
     private List<Widget> widgetList = new ArrayList<>();
 
     {
-        widgetList.add(new Widget("1", "Widget A", "5e867262d9496e00174f5e7c", "HEADING", 1, "sample text",null,0,0,0,null,null,null));
-        widgetList.add(new Widget("2", "Widget B", "5e867262d9496e00174f5e7c","HEADING",1, "sample text",null,0,0,0,null,null,null));
-        widgetList.add(new Widget("3", "Widget C", "5e867262d9496e00174f5e7c", "HEADING",1, "sample text",null,0,0,0,null,null,null));
+        widgetList.add(new Widget("1","Heading Widget A", "5e867262d9496e00174f5e7c", "HEADING", 1, "Sample Heading text",null,1,0,0,null,null,null));
+        widgetList.add(new Widget("2", "Heading Widget B", "5e867262d9496e00174f5e7c","HEADING",1, "Sample Heading text",null,1,0,0,null,null,null));
+        widgetList.add(new Widget("3","Heading Widget C", "5e867262d9496e00174f5e7c", "HEADING",1, "Sample Heading text",null,1,0,0,null,null,null));
 
-        widgetList.add(new Widget("4", "Widget X", "5e867261d9496e00174f5e7b", "PARAGRAPH",1, "sample text",null,0,0,0,null,null,null));
-        widgetList.add(new Widget("5", "Widget Y", "5e867261d9496e00174f5e7b", "PARAGRAPH",1, "sample text",null,0,0,0,null,null,null));
-        widgetList.add(new Widget("6", "Widget Z", "5e867261d9496e00174f5e7b", "HEADING",1, "sample text",null,0,0,0,null,null,null));
+        widgetList.add(new Widget("4","Paragraph Widget X", "5e867261d9496e00174f5e7b", "PARAGRAPH",1, "Sample Paragraph text",null,1,0,0,null,null,null));
+        widgetList.add(new Widget("5","Heading Widget Z", "5e867261d9496e00174f5e7b", "HEADING",1, "Sample Heading text",null,1,0,0,null,null,null));
+        widgetList.add(new Widget("6","Paragraph Widget Y", "5e867261d9496e00174f5e7b", "PARAGRAPH",1, "Sample Paragraph text",null, 1,0,0,null,null,null));
     }
 
-    public void createWidget(Widget widget) {
+    public Widget createWidget(Widget widget) {
         widgetList.add(widget);
+        return widget;
     }
 
     public List<Widget> findAllWidgets() {

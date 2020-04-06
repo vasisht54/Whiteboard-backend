@@ -4,7 +4,6 @@ import com.example.wbdvsp20vasishtserverjava.models.Widget;
 import com.example.wbdvsp20vasishtserverjava.services.WidgetService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -27,9 +26,9 @@ public class WidgetController {
         return widgetService.updateWidget(widgetId, widget);
     }
 
-    @PostMapping("/api/widgets")
-    public void createWidget(@RequestBody Widget widget) {
-        widgetService.createWidget(widget);
+    @PostMapping("/api/topics/{tId}/widgets")
+    public Widget createWidget(@RequestBody Widget widget) {
+        return widgetService.createWidget(widget);
     }
 
     @DeleteMapping("/api/widgets/{wId}")
