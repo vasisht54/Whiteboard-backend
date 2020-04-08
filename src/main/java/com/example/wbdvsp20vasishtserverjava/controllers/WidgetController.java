@@ -26,6 +26,12 @@ public class WidgetController {
         return widgetService.updateWidget(widgetId, widget);
     }
 
+    @PutMapping("/api/widgets/{wId}/{direction}")
+    public int updateWidgetOrder(@PathVariable("wId") String widgetId, @PathVariable("direction") String direction,
+                                 @RequestBody Widget widget) {
+        return widgetService.updateWidgetOrder(widgetId, widget, direction);
+    }
+
     @PostMapping("/api/topics/{tId}/widgets")
     public Widget createWidget(@RequestBody Widget widget) {
         return widgetService.createWidget(widget);

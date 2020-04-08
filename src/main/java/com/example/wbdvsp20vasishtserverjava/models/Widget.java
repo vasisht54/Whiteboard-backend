@@ -1,6 +1,6 @@
 package com.example.wbdvsp20vasishtserverjava.models;
 
-import javax.persistence.*;
+import java.util.Comparator;
 
 public class Widget {
 
@@ -141,5 +141,6 @@ public class Widget {
     public void setTitle(String title) {
         this.title = title;
     }
+
 }
 
