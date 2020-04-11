@@ -8,6 +8,6 @@ public class SortByOrder implements Comparator<Widget> {
 
     @Override
     public int compare(Widget o1, Widget o2) {
-        return o1.getOrder() - o2.getOrder();
+        return o1.getOrderSequence() - o2.getOrderSequence();
     }
 }
