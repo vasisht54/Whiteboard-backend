@@ -12,7 +12,7 @@ import java.util.*;
 public class WidgetService {
 
     @Autowired
-    WidgetRepository widgetRepository;
+    private WidgetRepository widgetRepository;
 
     public Widget createWidget(Widget widget) {
         return widgetRepository.save(widget);
