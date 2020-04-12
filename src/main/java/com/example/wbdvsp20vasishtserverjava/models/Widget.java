@@ -10,7 +10,7 @@ public class Widget {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title = "New Widget";
-    private String topicId;
+    private int topicId;
     private String type = "HEADING";
     private int orderSequence;
     private String text;
@@ -22,7 +22,7 @@ public class Widget {
     private String style;
     private String value;
 
-    public Widget(int id, String title, String topicId, String type, int orderSequence, String text, String src,
+    public Widget(int id, String title, int topicId, String type, int orderSequence, String text, String src,
                   int size, int width, int height, String cssClass, String style, String value) {
         this.id = id;
         this.title = title;
@@ -122,11 +122,11 @@ public class Widget {
         this.type = type;
     }
 
-    public String getTopicId() {
+    public int getTopicId() {
         return topicId;
     }
 
-    public void setTopicId(String topicId) {
+    public void setTopicId(int topicId) {
         this.topicId = topicId;
     }
 

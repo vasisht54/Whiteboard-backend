@@ -20,7 +20,7 @@ public class WidgetController {
     }
 
     @GetMapping("/api/topics/{tId}/widgets")
-    public List<Widget> findWidgetsForTopic(@PathVariable("tId") String topicId) {
+    public List<Widget> findWidgetsForTopic(@PathVariable("tId") int topicId) {
         return widgetService.findWidgetsForTopic(topicId);
     }
 
@@ -29,14 +29,15 @@ public class WidgetController {
         return widgetService.updateWidget(widgetId, widget);
     }
 
-    @PutMapping("/api/widgets/{wId}/{direction}")
+    /*@PutMapping("/api/widgets/{wId}/{direction}")
     public int updateWidgetOrder(@PathVariable("wId") int widgetId, @PathVariable("direction") String direction,
                                  @RequestBody Widget widget) {
         return widgetService.updateWidgetOrder(widgetId, widget, direction);
-    }
+    }*/
 
     @PostMapping("/api/topics/{tId}/widgets")
-    public Widget createWidget(@RequestBody Widget widget) {
+    public Widget createWidget(@RequestBody Widget widget, @PathVariable("tId") int topicId) {
+        widget.setTopicId(topicId);
         return widgetService.createWidget(widget);
     }
 

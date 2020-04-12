@@ -15,7 +15,7 @@ public class WidgetService {
     WidgetRepository widgetRepository;
 
     public Widget createWidget(Widget widget) {
-        return widget;
+        return widgetRepository.save(widget);
     }
 
     public List<Widget> findAllWidgets() {
@@ -23,73 +23,21 @@ public class WidgetService {
     }
 
     public boolean deleteWidget(int wid) {
-        return false;
+        widgetRepository.deleteById(wid);
+        return true;
     }
 
-    public List<Widget> findWidgetsForTopic(String topicId) {
-
-        return null;
+    public List<Widget> findWidgetsForTopic(int topicId) {
+        return widgetRepository.findWidgetsForTopic(topicId);
     }
 
     public int updateWidget(int wid, Widget widget) {
-
-        return 0;
+        widget.setId(wid);
+        widgetRepository.save(widget);
+        return 1;
     }
 
     public Widget findWidgetById(int wid) {
         return widgetRepository.findById(wid).get();
-    }
-
-    private int getOrderOfLastWidgetOfTopic(String topicId) {
-        List<Widget> widgetsForTopic = findWidgetsForTopic(topicId);
-        return widgetsForTopic.get(widgetsForTopic.size()-1).getOrderSequence();
-    }
-
-    private int getOrderOfFirstWidgetOfTopic(String topicId) {
-        List<Widget> widgetsForTopic = findWidgetsForTopic(topicId);
-        return widgetsForTopic.get(0).getOrderSequence();
-    }
-
-    public int updateWidgetOrder(int widgetId, Widget widget, String direction) {
-
-        int currWidgetOrder = widget.getOrderSequence();
-        System.out.println("Title =" + widget.getTitle() + "\n order" + widget.getOrderSequence());
-        List<Widget> widgetsForTopic = findWidgetsForTopic(widget.getTopicId());
-
-        if(direction.equals("DOWN")) {
-
-            if(currWidgetOrder == getOrderOfLastWidgetOfTopic(widget.getTopicId())) {
-                return 0;
-            }
-
-            Widget nextWidget = widgetsForTopic.get(widgetsForTopic.indexOf(findWidgetById(widgetId))+1);
-            int nextWidgetOrder = nextWidget.getOrderSequence();
-
-            widget.setOrderSequence(nextWidgetOrder);
-            nextWidget.setOrderSequence(currWidgetOrder);
-/*
-
-            widgetList.set(widgetList.indexOf(findWidgetById(widgetId)), widget);
-            widgetList.set(widgetList.indexOf(findWidgetById(nextWidget.getId())), nextWidget);
-*/
-
-        }
-        else {
-
-            if(currWidgetOrder == getOrderOfFirstWidgetOfTopic(widget.getTopicId())) {
-                return 0;
-            }
-
-            Widget prevWidget = widgetsForTopic.get(widgetsForTopic.indexOf(findWidgetById(widgetId))-1);
-            int prevWidgetOrder = prevWidget.getOrderSequence();
-
-            widget.setOrderSequence(prevWidgetOrder);
-            prevWidget.setOrderSequence(currWidgetOrder);
-/*
-            widgetList.set(widgetList.indexOf(findWidgetById(widgetId)), widget);
-            widgetList.set(widgetList.indexOf(findWidgetById(prevWidget.getId())), prevWidget);*/
-
-        }
-        return 1;
     }
 }
