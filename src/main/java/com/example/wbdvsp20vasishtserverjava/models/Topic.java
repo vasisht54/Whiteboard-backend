@@ -12,7 +12,7 @@ public class Topic {
     private int id;
 
     private String title;
-    private int lessonId;
+    private String lessonId;
 
     @OneToMany(mappedBy = "topic")
     private List<Widget> widgets;
@@ -36,11 +36,11 @@ public class Topic {
         this.title = title;
     }
 
-    public int getLessonId() {
+    public String getLessonId() {
         return lessonId;
     }
 
-    public void setLessonId(int lessonId) {
+    public void setLessonId(String lessonId) {
         this.lessonId = lessonId;
     }
 }

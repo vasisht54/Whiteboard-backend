@@ -36,7 +36,7 @@ public class TopicController {
     }*/
 
     @PostMapping("/api/lessons/{lId}/topics")
-    public Topic createTopic(@RequestBody Topic topic, @PathVariable("lId") int lessonId) {
+    public Topic createTopic(@RequestBody Topic topic, @PathVariable("lId") String lessonId) {
         topic.setLessonId(lessonId);
         return topicService.createTopic(topic);
     }
