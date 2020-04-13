@@ -35,7 +35,7 @@ public class TopicController {
         return topicService.updateTopicOrder(topicId, topic, direction);
     }*/
 
-    @PostMapping("/api/lesson/{lId}/topics")
+    @PostMapping("/api/lessons/{lId}/topics")
     public Topic createTopic(@RequestBody Topic topic, @PathVariable("lId") int lessonId) {
         topic.setLessonId(lessonId);
         return topicService.createTopic(topic);

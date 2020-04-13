@@ -1,5 +1,7 @@
 package com.example.wbdvsp20vasishtserverjava.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,7 +12,10 @@ public class Widget {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title = "New Widget";
-    private int topicId;
+
+    @ManyToOne
+    @JsonIgnore
+    private Topic topic;
     private String type = "HEADING";
     private int orderSequence;
     private String text;
@@ -22,11 +27,11 @@ public class Widget {
     private String style;
     private String value;
 
-    public Widget(int id, String title, int topicId, String type, int orderSequence, String text, String src,
+    public Widget(int id, String title, Topic topic, String type, int orderSequence, String text, String src,
                   int size, int width, int height, String cssClass, String style, String value) {
         this.id = id;
         this.title = title;
-        this.topicId = topicId;
+        this.topic = topic;
         this.type = type;
         this.orderSequence = orderSequence;
         this.text = text;
@@ -122,12 +127,12 @@ public class Widget {
         this.type = type;
     }
 
-    public int getTopicId() {
-        return topicId;
+    public Topic getTopic() {
+        return topic;
     }
 
-    public void setTopicId(int topicId) {
-        this.topicId = topicId;
+    public void setTopic(Topic topic) {
+        this.topic = topic;
     }
 
     public int getId() {

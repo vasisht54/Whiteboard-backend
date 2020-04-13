@@ -1,6 +1,7 @@
 package com.example.wbdvsp20vasishtserverjava.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "topics")
@@ -12,6 +13,9 @@ public class Topic {
 
     private String title;
     private int lessonId;
+
+    @OneToMany(mappedBy = "topic")
+    private List<Widget> widgets;
 
     public Topic() {
     }

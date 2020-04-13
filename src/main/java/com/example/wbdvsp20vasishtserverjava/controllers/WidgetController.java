@@ -1,6 +1,8 @@
 package com.example.wbdvsp20vasishtserverjava.controllers;
 
+import com.example.wbdvsp20vasishtserverjava.models.Topic;
 import com.example.wbdvsp20vasishtserverjava.models.Widget;
+import com.example.wbdvsp20vasishtserverjava.services.TopicService;
 import com.example.wbdvsp20vasishtserverjava.services.WidgetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,9 @@ public class WidgetController {
 
     @Autowired
     private WidgetService widgetService;
+
+    @Autowired
+    private TopicService topicService;
 
     @GetMapping("/api/widgets")
     public List<Widget> findAllWidgets() {
@@ -37,7 +42,8 @@ public class WidgetController {
 
     @PostMapping("/api/topics/{tId}/widgets")
     public Widget createWidget(@RequestBody Widget widget, @PathVariable("tId") int topicId) {
-        widget.setTopicId(topicId);
+        Topic topic =  topicService.findTopicById(topicId);
+        widget.setTopic(topic);
         return widgetService.createWidget(widget);
     }
 
