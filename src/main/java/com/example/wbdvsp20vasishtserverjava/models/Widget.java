@@ -142,5 +142,14 @@ public class Widget {
         this.title = title;
     }
 
+
+    @Override
+    public String toString() {
+        return "Widget{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", order=" + order +
+                '}';
+    }
 }
 
