@@ -14,7 +14,6 @@ public class Widget {
     private String title = "New Widget";
 
     @ManyToOne
-    @JsonIgnore
     private Topic topic;
     private String type = "HEADING";
     private int orderSequence;

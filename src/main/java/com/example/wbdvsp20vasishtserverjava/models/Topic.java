@@ -1,5 +1,7 @@
 package com.example.wbdvsp20vasishtserverjava.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -9,23 +11,42 @@ public class Topic {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int _id;
 
     private String title;
     private String lessonId;
 
     @OneToMany(mappedBy = "topic")
+    @JsonIgnore
     private List<Widget> widgets;
+
+    private String description;
 
     public Topic() {
     }
 
-    public int getId() {
-        return id;
+    public String getDescription() {
+        return description;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<Widget> getWidgets() {
+        return widgets;
+    }
+
+    public void setWidgets(List<Widget> widgets) {
+        this.widgets = widgets;
+    }
+
+    public int get_id() {
+        return _id;
+    }
+
+    public void set_id(int id) {
+        this._id = id;
     }
 
     public String getTitle() {

@@ -1,7 +1,6 @@
 package com.example.wbdvsp20vasishtserverjava.services;
 
 import com.example.wbdvsp20vasishtserverjava.models.Topic;
-import com.example.wbdvsp20vasishtserverjava.models.Topic;
 import com.example.wbdvsp20vasishtserverjava.repositories.TopicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,12 +26,12 @@ public class TopicService {
         return true;
     }
 
-    public List<Topic> findTopicsForLesson(int lessonId) {
+    public List<Topic> findTopicsForLesson(String lessonId) {
         return topicRepository.findTopicsForLesson(lessonId);
     }
 
     public int updateTopic(int tid, Topic topic) {
-        topic.setId(tid);
+        topic.set_id(tid);
         topicRepository.save(topic);
         return 1;
     }

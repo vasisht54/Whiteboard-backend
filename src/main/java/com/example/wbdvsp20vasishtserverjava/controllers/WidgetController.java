@@ -1,13 +1,12 @@
 package com.example.wbdvsp20vasishtserverjava.controllers;
 
-import com.example.wbdvsp20vasishtserverjava.models.Topic;
 import com.example.wbdvsp20vasishtserverjava.models.Widget;
-import com.example.wbdvsp20vasishtserverjava.services.TopicService;
 import com.example.wbdvsp20vasishtserverjava.services.WidgetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -16,17 +15,14 @@ public class WidgetController {
     @Autowired
     private WidgetService widgetService;
 
-    @Autowired
-    private TopicService topicService;
-
     @GetMapping("/api/widgets")
     public List<Widget> findAllWidgets() {
         return widgetService.findAllWidgets();
     }
 
     @GetMapping("/api/topics/{tId}/widgets")
-    public List<Widget> findWidgetsForTopic(@PathVariable("tId") int topicId) {
-        return widgetService.findWidgetsForTopic(topicId);
+    public List<Widget> findWidgetsForTopic(@PathVariable("tId") String topicId) {
+        return widgetService.findWidgetsForTopic(Integer.parseInt(topicId));
     }
 
     @PutMapping("/api/widgets/{wId}")
@@ -34,17 +30,15 @@ public class WidgetController {
         return widgetService.updateWidget(widgetId, widget);
     }
 
-    /*@PutMapping("/api/widgets/{wId}/{direction}")
+    @PutMapping("/api/widgets/{wId}/{direction}")
     public int updateWidgetOrder(@PathVariable("wId") int widgetId, @PathVariable("direction") String direction,
                                  @RequestBody Widget widget) {
         return widgetService.updateWidgetOrder(widgetId, widget, direction);
-    }*/
+    }
 
     @PostMapping("/api/topics/{tId}/widgets")
     public Widget createWidget(@RequestBody Widget widget, @PathVariable("tId") int topicId) {
-        Topic topic =  topicService.findTopicById(topicId);
-        widget.setTopic(topic);
-        return widgetService.createWidget(widget);
+        return widgetService.createWidget(topicId, widget);
     }
 
     @DeleteMapping("/api/widgets/{wId}")

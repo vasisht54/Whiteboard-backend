@@ -10,5 +10,5 @@ import java.util.List;
 public interface TopicRepository extends CrudRepository<Topic, Integer> {
 
     @Query("SELECT topic FROM Topic topic where topic.lessonId = :lId")
-    public List<Topic> findTopicsForLesson(@Param("lId") int lessonId);
+    public List<Topic> findTopicsForLesson(@Param("lId") String lessonId);
 }
