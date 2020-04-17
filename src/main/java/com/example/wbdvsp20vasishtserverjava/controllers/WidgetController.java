@@ -22,7 +22,7 @@ public class WidgetController {
 
     @GetMapping("/api/topics/{tId}/widgets")
     public List<Widget> findWidgetsForTopic(@PathVariable("tId") String topicId) {
-        return widgetService.findWidgetsForTopic(Integer.parseInt(topicId));
+        return widgetService.findWidgetsForTopic(topicId);
     }
 
     @PutMapping("/api/widgets/{wId}")
@@ -37,7 +37,7 @@ public class WidgetController {
     }
 
     @PostMapping("/api/topics/{tId}/widgets")
-    public Widget createWidget(@RequestBody Widget widget, @PathVariable("tId") int topicId) {
+    public Widget createWidget(@RequestBody Widget widget, @PathVariable("tId") String topicId) {
         return widgetService.createWidget(topicId, widget);
     }
 

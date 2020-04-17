@@ -18,8 +18,8 @@ public class WidgetService {
     @Autowired
     private TopicRepository topicRepository;
 
-    public Widget createWidget(int topicId, Widget widget) {
-        Topic topic = topicRepository.findById(topicId).get();
+    public Widget createWidget(String topicId, Widget widget) {
+        Topic topic = topicRepository.findById(Integer.parseInt(topicId)).get();
         widget.setTopic(topic);
         return widgetRepository.save(widget);
     }
@@ -33,8 +33,12 @@ public class WidgetService {
         return true;
     }
 
-    public List<Widget> findWidgetsForTopic(int topicId) {
-        Topic topic = topicRepository.findById(topicId).get();
+    public List<Widget> findWidgetsForTopic(String topicId) {
+        if(topicId.equals("undefined")) {
+            List<Widget> widgets = Collections.emptyList();
+            return widgets;
+        }
+        Topic topic = topicRepository.findById(Integer.parseInt(topicId)).get();
         return topic.getWidgets();
     }
 
@@ -47,13 +51,13 @@ public class WidgetService {
         return widgetRepository.findById(wid).get();
     }
 
-    private int getOrderOfLastWidgetOfTopic(int topicId) {
+    private int getOrderOfLastWidgetOfTopic(String topicId) {
         List<Widget> widgetsForTopic = findWidgetsForTopic(topicId);
         widgetsForTopic.sort(Comparator.comparingInt(Widget::getOrderSequence));
         return widgetsForTopic.get(widgetsForTopic.size()-1).getOrderSequence();
     }
 
-    private int getOrderOfFirstWidgetOfTopic(int topicId) {
+    private int getOrderOfFirstWidgetOfTopic(String topicId) {
         List<Widget> widgetsForTopic = findWidgetsForTopic(topicId);
         widgetsForTopic.sort(Comparator.comparingInt(Widget::getOrderSequence));
         return widgetsForTopic.get(0).getOrderSequence();
@@ -64,11 +68,11 @@ public class WidgetService {
         widget = widgetRepository.findById(widgetId).get();
 
         int currWidgetOrder = widget.getOrderSequence();
-        List<Widget> widgetsForTopic = findWidgetsForTopic(widget.getTopic().get_id());
+        List<Widget> widgetsForTopic = findWidgetsForTopic(widget.getTopic().get_id() + "");
 
         if(direction.equals("DOWN")) {
 
-            if(currWidgetOrder == getOrderOfLastWidgetOfTopic(widget.getTopic().get_id())) {
+            if(currWidgetOrder == getOrderOfLastWidgetOfTopic(widget.getTopic().get_id() + "")) {
                 return 0;
             }
 
@@ -83,7 +87,7 @@ public class WidgetService {
         }
         else {
 
-            if(currWidgetOrder == getOrderOfFirstWidgetOfTopic(widget.getTopic().get_id())) {
+            if(currWidgetOrder == getOrderOfFirstWidgetOfTopic(widget.getTopic().get_id() + "")) {
                 return 0;
             }
 
