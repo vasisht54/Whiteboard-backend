@@ -1,111 +1,105 @@
 package com.example.wbdvsp20vasishtserverjava.services;
 
+import com.example.wbdvsp20vasishtserverjava.models.Topic;
 import com.example.wbdvsp20vasishtserverjava.models.Widget;
+import com.example.wbdvsp20vasishtserverjava.repositories.TopicRepository;
+import com.example.wbdvsp20vasishtserverjava.repositories.WidgetRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+@Service
 public class WidgetService {
-    private List<Widget> widgetList = new ArrayList<>();
 
+    @Autowired
+    private WidgetRepository widgetRepository;
 
-    public Widget createWidget(Widget widget) {
-        widgetList.add(widget);
-        widgetList.sort(Comparator.comparingInt(Widget::getOrder));
-        return widget;
+    @Autowired
+    private TopicRepository topicRepository;
+
+    public Widget createWidget(String topicId, Widget widget) {
+        Topic topic = topicRepository.findById(Integer.parseInt(topicId)).get();
+        widget.setTopic(topic);
+        return widgetRepository.save(widget);
     }
 
     public List<Widget> findAllWidgets() {
-        return widgetList;
+        return (List<Widget>) widgetRepository.findAll();
     }
 
-    public boolean deleteWidget(String wid) {
-        return widgetList.remove(findWidgetById(wid));
+    public boolean deleteWidget(int wid) {
+        widgetRepository.deleteById(wid);
+        return true;
     }
 
     public List<Widget> findWidgetsForTopic(String topicId) {
-        List<Widget> results = new ArrayList<>();
-        for(Widget w: widgetList) {
-            if(w.getTopicId().equals(topicId)) {
-                results.add(w);
-            }
+        if(topicId.equals("undefined")) {
+            List<Widget> widgets = Collections.emptyList();
+            return widgets;
         }
-        results.sort(Comparator.comparingInt(Widget::getOrder));
-        return results;
+        Topic topic = topicRepository.findById(Integer.parseInt(topicId)).get();
+        return topic.getWidgets();
     }
 
-    public int updateWidget(String wid, Widget widget) {
-        for(Widget w: widgetList) {
-            if(w.getId().equals(wid)) {
-                widgetList.set(widgetList.indexOf(findWidgetById(wid)),widget);
-                return 1;
-            }
-        }
-        widgetList.sort(Comparator.comparingInt(Widget::getOrder));
-        return 0;
+    public int updateWidget(int wid, Widget widget) {
+        widgetRepository.save(widget);
+        return 1;
     }
 
-    public Widget findWidgetById(String wid) {
-        for(Widget w: widgetList) {
-            if(w.getId().equals(wid)) {
-                return w;
-            }
-        }
-
-        return null;
+    public Widget findWidgetById(int wid) {
+        return widgetRepository.findById(wid).get();
     }
 
     private int getOrderOfLastWidgetOfTopic(String topicId) {
         List<Widget> widgetsForTopic = findWidgetsForTopic(topicId);
-        widgetsForTopic.sort(Comparator.comparingInt(Widget::getOrder));
-        Widget lastWidget = widgetsForTopic.get(widgetsForTopic.size()-1);
-        return widgetsForTopic.get(widgetsForTopic.size()-1).getOrder();
+        widgetsForTopic.sort(Comparator.comparingInt(Widget::getOrderSequence));
+        return widgetsForTopic.get(widgetsForTopic.size()-1).getOrderSequence();
     }
 
     private int getOrderOfFirstWidgetOfTopic(String topicId) {
         List<Widget> widgetsForTopic = findWidgetsForTopic(topicId);
-        widgetsForTopic.sort(Comparator.comparingInt(Widget::getOrder));
-        Widget firstWidget = widgetsForTopic.get(0);
-        return widgetsForTopic.get(0).getOrder();
+        widgetsForTopic.sort(Comparator.comparingInt(Widget::getOrderSequence));
+        return widgetsForTopic.get(0).getOrderSequence();
     }
 
-    public int updateWidgetOrder(String widgetId, Widget widget, String direction) {
+    public int updateWidgetOrder(int widgetId, Widget widget, String direction) {
 
-        widget = widgetList.get(widgetList.indexOf(findWidgetById(widget.getId())));
+        widget = widgetRepository.findById(widgetId).get();
 
-        int currWidgetOrder = widget.getOrder();
-        List<Widget> widgetsForTopic = findWidgetsForTopic(widget.getTopicId());
+        int currWidgetOrder = widget.getOrderSequence();
+        List<Widget> widgetsForTopic = findWidgetsForTopic(widget.getTopic().get_id() + "");
 
         if(direction.equals("DOWN")) {
 
-            if(currWidgetOrder == getOrderOfLastWidgetOfTopic(widget.getTopicId())) {
+            if(currWidgetOrder == getOrderOfLastWidgetOfTopic(widget.getTopic().get_id() + "")) {
                 return 0;
             }
 
             Widget nextWidget = widgetsForTopic.get(widgetsForTopic.indexOf(findWidgetById(widgetId))+1);
-            int nextWidgetOrder = nextWidget.getOrder();
+            int nextWidgetOrder = nextWidget.getOrderSequence();
 
-            widget.setOrder(nextWidgetOrder);
-            nextWidget.setOrder(currWidgetOrder);
+            widget.setOrderSequence(nextWidgetOrder);
+            nextWidget.setOrderSequence(currWidgetOrder);
 
-            widgetList.set(widgetList.indexOf(findWidgetById(widget.getId())), widget);
-            widgetList.set(widgetList.indexOf(findWidgetById(nextWidget.getId())), nextWidget);
-
+            widgetRepository.save(widget);
+            widgetRepository.save(nextWidget);
         }
         else {
 
-            if(currWidgetOrder == getOrderOfFirstWidgetOfTopic(widget.getTopicId())) {
+            if(currWidgetOrder == getOrderOfFirstWidgetOfTopic(widget.getTopic().get_id() + "")) {
                 return 0;
             }
 
             Widget prevWidget = widgetsForTopic.get(widgetsForTopic.indexOf(findWidgetById(widgetId))-1);
-            int prevWidgetOrder = prevWidget.getOrder();
+            int prevWidgetOrder = prevWidget.getOrderSequence();
 
-            widget.setOrder(prevWidgetOrder);
-            prevWidget.setOrder(currWidgetOrder);
+            widget.setOrderSequence(prevWidgetOrder);
+            prevWidget.setOrderSequence(currWidgetOrder);
 
 
-            widgetList.set(widgetList.indexOf(findWidgetById(widget.getId())), widget);
-            widgetList.set(widgetList.indexOf(findWidgetById(prevWidget.getId())), prevWidget);
+            widgetRepository.save(widget);
+            widgetRepository.save(prevWidget);
 
         }
         return 1;
